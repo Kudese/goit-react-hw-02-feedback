@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import LeaveFeeedback from './Leave feedback/LeaveFeedback';
+import LeaveFeeedback from './LeaveFeedback/LeaveFeedback';
+import Statistic from './Statistic/Statistic';
 
 export default class Feedback extends Component {
   state = {
@@ -13,15 +14,34 @@ export default class Feedback extends Component {
       return { [keys]: prevState[keys] + 1 };
     });
   };
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
+  };
+  countPositiveFeedbackPercentage = () => {
+    return Math.round(
+      (this.state.good * 100) /
+        (this.state.good + this.state.neutral + this.state.bad)
+    );
+  };
+
   render() {
+    const { good, neutral, bad } = this.state;
     return (
-      <LeaveFeeedback
-        addFedback={this.addFedback}
-        good={this.state.good}
-        neutral={this.state.neutral}
-        bad={this.state.bad}
-      />
-      
+      <div>
+        <LeaveFeeedback
+          addFedback={this.addFedback}
+          good={good}
+          neutral={neutral}
+          bad={bad}
+        />
+        <Statistic
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={this.countTotalFeedback}
+          positivePercentage={this.countPositiveFeedbackPercentage}
+        />
+      </div>
     );
   }
 }
