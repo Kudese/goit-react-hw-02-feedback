@@ -1,30 +1,20 @@
 import s from '../LeaveFeedback/LeaveFeedback.module.css';
-export default function LeaveFeeedback({ good, neutral, bad, addFedback }) {
+export default function LeaveFeeedback({state , addFedback }) {
+  console.log( Object.keys(state))
   return (
     <div className={s.container}>
       <h2>Please leave feedback</h2>
-      <button 
-      className={s.btn} 
-      type="button" 
-      onClick={addFedback} 
-      name="good">
-        Good
-      </button>
-      <button
-        className={s.btn}
-        type="button"
-        onClick={addFedback}
-        name="neutral"
-      >
-        Neutral
-      </button>
-      <button 
+      {Object.keys(state).map((el)=>
+      {return <button 
+        key={el}
       className={s.btn} 
       type="button" 
       onClick={addFedback}
-       name="bad">
-        Bad
-      </button>
-    </div>
-  );
+       name={el}>
+      {el[0].toUpperCase() + el.slice(1)}
+      </button>}
+      )}
+    
+    </div>)
+  
 }

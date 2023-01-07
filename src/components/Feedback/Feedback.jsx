@@ -30,9 +30,7 @@ export default class Feedback extends Component {
       <div>
         <LeaveFeeedback
           addFedback={this.addFedback}
-          good={good}
-          neutral={neutral}
-          bad={bad}
+         state={this.state}
         />
         <Statistic
           good={good}
