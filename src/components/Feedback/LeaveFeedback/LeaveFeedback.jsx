@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import s from '../LeaveFeedback/LeaveFeedback.module.css';
 export default function LeaveFeeedback({state , onAddFedback }) {
-  console.log( Object.keys(state))
+
   return (
     <div className={s.container}>
       <h2>Please leave feedback</h2>
