@@ -8,7 +8,7 @@ export default class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  addFedback = e => {
+  handleaddFedback = e => {
     const keys = e.target.name;
     this.setState(prevState => {
       return { [keys]: prevState[keys] + 1 };
@@ -29,7 +29,7 @@ export default class Feedback extends Component {
     return (
       <div>
         <LeaveFeeedback
-          addFedback={this.addFedback}
+          onAddFedback={this.handleaddFedback}
          state={this.state}
         />
         <Statistic

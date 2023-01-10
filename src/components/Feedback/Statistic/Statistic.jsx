@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from '../Statistic/Statistics.module.css';
 import Notification from '../Notification/Notification';
 export default function Statistic({
@@ -23,4 +24,10 @@ export default function Statistic({
       )}
     </div>
   );
+}
+Statistic.propTypes={
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage : PropTypes.number.isRequired,
 }
