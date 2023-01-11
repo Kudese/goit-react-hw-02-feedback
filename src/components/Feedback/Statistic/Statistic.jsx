@@ -10,24 +10,24 @@ export default function Statistic({
 }) {
   return (
     <div className={s.conteiner}>
-      <h2>Statistics</h2>
       {total() === 0 ? (
         <Notification message="There is no feedback" />
       ) : (
-        <> 
-        <span>Good:{good}</span>
-         <span>Neutral:{neutral}</span>
-         <span>Bad:{bad}</span>
-         <span>Total:{total()}</span>
-         <span>Positive feedback: {positivePercentage()}%</span>
-         </>
+        <>
+          <span>Good:{good}</span>
+          <span>Neutral:{neutral}</span>
+          <span>Bad:{bad}</span>
+          <span>Total:{total()}</span>
+          <span>Positive feedback: {positivePercentage()}%</span>
+        </>
       )}
     </div>
   );
 }
-Statistic.propTypes={
+Statistic.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  positivePercentage : PropTypes.number.isRequired,
-}
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
+};
