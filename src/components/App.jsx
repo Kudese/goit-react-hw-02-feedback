@@ -25,13 +25,13 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <div>
-        <Section title={'Please leave feedback'} />
+        <Section  title={'Please leave feedback'} >
         <FeedbackOptions
           onAddFedback={this.handleaddFedback}
           state={this.state}
         />
-
-        <Section title={'Statistics'}>
+           </Section>
+        <Section  title={'Statistics'}>
           <Statistic
             good={good}
             neutral={neutral}
